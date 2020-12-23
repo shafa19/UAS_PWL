@@ -11,7 +11,7 @@ class CourseTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('course')->insert(array(
+        DB::table('courses')->insert(array(
             ['nama_course' => 'Conversation Class',
              'short_desc' => 'English course for 12-17 years old teenagers with practicing daily conversation using english until you become fluent.',
              'long_desc' => 'Students will encouraged by to speak english since day one joining class, such as telling their daily activities, trending news, or even learn directly from native speakers that usually happens once before the final test.',

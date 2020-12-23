@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJadwalTable extends Migration
+class CreateSchedulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateJadwalTable extends Migration
      */
     public function up()
     {
-        Schema::create('jadwal', function (Blueprint $table) {
-            $table->bigIncrements('jadwal_id');
+        Schema::create('schedules', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('materi');
             $table->string('pemateri');
             $table->text('waktu');
@@ -30,6 +30,6 @@ class CreateJadwalTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jadwal');
+        Schema::dropIfExists('schedules');
     }
 }

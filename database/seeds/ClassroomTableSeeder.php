@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class RuangkelasTableSeeder extends Seeder
+class ClassroomTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class RuangkelasTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('ruangkelas')->insert(array(
+        DB::table('classrooms')->insert(array(
             ['nama_ruang' => 'Regular Class',
              'kapasitas' => '20',
              'ruang_pic' => 'https://images.unsplash.com/photo-1585637071663-799845ad5212?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80'

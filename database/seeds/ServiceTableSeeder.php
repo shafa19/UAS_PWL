@@ -11,7 +11,7 @@ class ServiceTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('service')->insert(array(
+        DB::table('services')->insert(array(
             ['nama_service' => 'Modul',
              'keterangan' => 'You will get text book everytime youre joining one of our classes. There are few materials depends on what courses you took, and also some exercises in it.',
              'service_pic' => 'https://images.unsplash.com/photo-1607746747627-8f2311dac2bf?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=771&q=80'

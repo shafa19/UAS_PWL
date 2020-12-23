@@ -10,13 +10,13 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Home</title>
+  <title>English Smart Introduction</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/modern-business.css" rel="stylesheet">
+  <link href="{{ asset('css/modern-business.css')}}" rel="stylesheet">
 
 </head>
 
@@ -25,24 +25,27 @@
   <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand">English Smart</a>
+      <a class="navbar-brand" href="{{ '/' }}">English Smart</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="about.html">Home</a>
+            <a class="nav-link" href="{{ '/' }}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="services.html">Courses</a>
+            <a class="nav-link" href="{{ '/course' }}">Course</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Fasilities</a>
-          </li>
+            <a class="nav-link" href="{{ '/services' }}">Service</a>
+          </li>   
           <li class="nav-item">
-            <a class="nav-link" href="">About Us</a>
-          </li>
+            <a class="nav-link" href="login.html">Login</a>
+          </li>   
+          <li class="nav-item">
+            <a class="nav-link" href="register.html">Register</a>
+          </li>   
         </ul>
       </div>
     </div>
@@ -57,24 +60,24 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80')">
+        <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1493767862928-5585c72094f1?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>English Smart</h3>
-            <p>Improve your English Skills with Us</p>
+            <h3>Student</h3>
+            <p>The students enjoy learning activities</p>
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1557244252-04610dfe5790?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTR8fGRpc2N1c3Npb258ZW58MHwwfDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')">
+        <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1504863872862-a26e5582ba80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1091&q=80')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>English Smart</h3>
-            <p>Various Interactive Ways to Learn English</p>
+            <h3>Classroom</h3>
+            <p>There are free WiFi, AC and LCD facilities</p>
           </div>
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1527822618093-743f3e57977c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80')">
+        <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>Join With Us!</h3>
-            <p>We're here for you. What are you waiting for?</p>
+            <h3>TOEFL Test</h3>
+            <p>Provides a toefl test</p>
           </div>
         </div>
       </div>
@@ -93,151 +96,37 @@
   <div class="container">
 
     <h1 class="my-4">Welcome to English Smart</h1>
-
-    <!-- Marketing Icons Section -->
-    <div class="row">
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- /.row -->
-
-    <!-- Portfolio Section -->
-    <h2>Portfolio Heading</h2>
-
-    <div class="row">
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Project One</a>
-            </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Project Two</a>
-            </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Project Three</a>
-            </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Project Four</a>
-            </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Project Five</a>
-            </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Project Six</a>
-            </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- /.row -->
+      <p>English Smart adalah sebuah lembaga kursus Bahasa Inggris yang berdiri sejak tanggal 1 September 2017 dan berlokasi di Jalan Soekarno Hatta No.9, Malang, Jawa Timur. Lokasi kursus English Smart sangat strategis dan berada dekat dengan kampus-kampus utama di Malang. Program kursus Bahasa Inggris yang ditawarkan oleh English Smart selain dalam bentuk kursus Bahasa Inggris, kami juga melayani bimbingan belajar Bahasa Inggris untuk peserta didik yang membutuhkan bantuan dalam pelajaran Bahasa Inggris di sekolah maupun kursus percakapan Bahasa Inggris bagi Anda yang akan melakukan presentasi dalam Bahasa Inggris, Daily Conversation, Public Speaking dan lain-lain. English Smart juga memiliki program English for Specific Purpose untuk berbagai macam kebutuhan Bahasa Inggris Anda baik dalam hal pendidikan maupun bisnis.</p>
+    <br>
 
     <!-- Features Section -->
     <div class="row">
       <div class="col-lg-6">
-        <h2>Modern Business Features</h2>
-        <p>The Modern Business template by Start Bootstrap includes:</p>
-        <ul>
-          <li>
-            <strong>Bootstrap v4</strong>
-          </li>
-          <li>jQuery</li>
-          <li>Font Awesome</li>
-          <li>Working contact form with validation</li>
-          <li>Unstyled page elements for easy customization</li>
-        </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+        <h3>Visi</h3>
+        <p>Menjadi Lembaga Pendidikan Kursus Bahasa Inggris yang berstandar pendidikan nasional, bermutu, inovatif, kreatif, mudah dipahami dan menyenangkan dengan lulusan yang mampu bersaing secara global dan mengikuti perkembangan zaman.</p>
+        <h3>Misi</h3>
+        <p>1. Menyediakan tempat kursus yang berstandar pendidikan nasional.</p>
+        <p>2. Mendidik lulusan yang berketrampilan, inovatif, kreatif dan mudah dipahami dibidang Bahasa Inggris didukung dengan wawasan yang luas.</p>
+        <p>3. Menciptakan suasana kelas yang kondusif dan menyenangkan serta didukung oleh pengajar yang kompeten dibidangnya.</p>
       </div>
       <div class="col-lg-6">
-        <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
+        <img class="img-fluid rounded" src="https://images.unsplash.com/photo-1570338896564-2340647bbe81?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1052&q=80" alt="">
       </div>
     </div>
+    <br>
+
     <!-- /.row -->
+    <div class="row">
+      <div class="col-lg-6">
+        <h3>Follow us</h3>
+        <img style="margin:10px" width="40" height="40" src="{{('img/periscope.png')}}" alt=""> Jl. Soekarno Hatta No. 9 Malang Jawa Timur <br>
+          <img style="margin:10px" width="40" height="40" src="{{('img/envelope.png')}}" alt=""> englishsmart@gmail.com <br>
+          <img style="margin:10px" width="40" height="40" src="{{('img/facebook.png')}}" alt=""> English Smart<br>
+          <img style="margin:10px" width="40" height="40" src="{{('img/instagram.png')}}" alt=""> english.smart <br>
+      </div>
+    </div>
 
     <hr>
-
-    <!-- Call to Action Section -->
-    <div class="row mb-4">
-      <div class="col-md-8">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
-      </div>
-      <div class="col-md-4">
-        <a class="btn btn-lg btn-secondary btn-block" href="#">Call to Action</a>
-      </div>
-    </div>
 
   </div>
   <!-- /.container -->
@@ -245,7 +134,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Shafa Ilona & Venina Yuliya 2020</p>
+      <p class="m-0 text-center text-white">Copyright &copy; English Smart 2020</p>
     </div>
     <!-- /.container -->
   </footer>

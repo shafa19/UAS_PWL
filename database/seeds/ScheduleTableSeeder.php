@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class JadwalTableSeeder extends Seeder
+class ScheduleTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class JadwalTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('jadwal')->insert(array(
+        DB::table('schedules')->insert(array(
             ['materi' => 'English Conversation 1 & 2',
              'pemateri' => 'Ms. Shafa Ilona',
              'waktu' => 'Monday, 16.30-18.00 WIB & Friday, 18.30-20.00 WIB',
