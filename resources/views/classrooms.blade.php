@@ -10,13 +10,13 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Schedules</title>
+  <title>Classrooms</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/modern-business.css" rel="stylesheet">
+  <link href="css/full-width-pics.css" rel="stylesheet">
 
 </head>
 
@@ -34,22 +34,22 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ '/' }}">Home</a>
           </li>
-          <li class="nav-item active dropdown">
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Classes
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
               <a class="dropdown-item" href="{{ '/course' }}">Courses</a>
-              <a class="dropdown-item active" href="{{ '/schedules' }}">Schedules</a>
+              <a class="dropdown-item" href="{{ '/schedules' }}">Schedules</a>
             </div>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item active dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Facilities
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
               <a class="dropdown-item" href="{{ '/services' }}">Services</a>
-              <a class="dropdown-item" href="{{ '/classrooms' }}">Classrooms</a>
+              <a class="dropdown-item active" href="{{ '/classrooms' }}">Classrooms</a>
             </div>
           </li>   
           <li class="nav-item">
@@ -63,42 +63,22 @@
     </div>
   </nav>
 
-  <!-- Page Content -->
-  <div class="container">
-
-    <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3">Schedules
-    </h1>
-
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item">
-        <a href="{{ '/course' }}">Courses</a>
-      </li>
-      <li class="breadcrumb-item active">Schedules</li>
-    </ol>
-
-    @foreach($schedules as $sc)
-    <div class="mb-4" id="accordion" role="tablist" aria-multiselectable="true">
-      <div class="card">
-        <div class="card-header" role="tab" id="headingOne">
-          <h5 class="mb-0">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">{{ $sc->materi }}</a>
-          </h5>
-        </div>
-
-        <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-          <div class="card-body">
-            <p><b>Mentor   : </b> {{ $sc->pemateri }}</p>
-            <p><b>Schedule : </b> {{ $sc->waktu }}</p>
-            <p><b>Session  : </b> {{ $sc->lama_pertemuan }} minutes</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    @endforeach
-
+  @foreach($classrooms as $cl)
+  <!-- Image element - set the background image for the header in the line below -->
+  <div class="py-5 bg-image-full" style="background-image: url('{{ $cl->ruang_pic }}');">
+    <!-- Put anything you want here! There is just a spacer below for demo purposes! -->
+    <div style="height: 200px;"></div>
   </div>
-  <!-- /.container -->
+
+  <!-- Content section -->
+  <section class="py-5">
+    <div class="container">
+      <h1>{{ $cl->nama_ruang }}</h1>
+      <p class="lead">This is {{ $cl->nama_ruang }} room</p>
+      <p>The capacity is up to {{ $cl->kapasitas }} students inside</p>
+    </div>
+  </section>
+  @endforeach
 
   <!-- Footer -->
   <footer class="py-5 bg-dark">
@@ -113,5 +93,4 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
-
 </html>

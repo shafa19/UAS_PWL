@@ -34,12 +34,24 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ '/' }}">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ '/course' }}">Course</a>
+          <li class="nav-item active dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Classes
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+              <a class="dropdown-item active" href="{{ '/course' }}">Courses</a>
+              <a class="dropdown-item" href="{{ '/schedules' }}">Schedules</a>
+            </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ '/services' }}">Service</a>
-          </li>   
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Facilities
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+              <a class="dropdown-item" href="{{ '/services' }}">Services</a>
+              <a class="dropdown-item" href="{{ '/classrooms' }}">Classrooms</a>
+            </div>
+          </li> 
           <li class="nav-item">
             <a class="nav-link" href="login.html">Login</a>
           </li>   
@@ -61,9 +73,9 @@
 
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
-        <a>English Smart</a>
+        <a>Course</a>
       </li>
-      <li class="breadcrumb-item active">Courses</li>
+      <li class="breadcrumb-item active">{{ $courses->nama_course }}</li>
     </ol>
 
     <!-- Portfolio Item Row -->
@@ -78,6 +90,8 @@
         <p>{{ $courses->long_desc }}</p>
         <h3 class="my-3">Price</h3>
         <p>only {{ $courses->harga }} IDR</p>
+        <br><br>
+        <a href="{{ '/course' }}" class="btn btn-primary">All Courses &rarr;</a>
       </div>
 
     </div>

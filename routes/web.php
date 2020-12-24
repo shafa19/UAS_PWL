@@ -15,8 +15,12 @@
 //     return view('welcome');
 // });
 
-Route::get('/', 'HomeController@home');
+Route::get('/', 'Home2Controller@home');
 Route::get('/course', 'MainCourseController');
 Route::get('/course/{id}', 'CourseController');
 Route::get('/services', 'ServiceController');
 Route::get('/schedules', 'ScheduleController');
+Route::get('/classrooms', 'ClassroomController');
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

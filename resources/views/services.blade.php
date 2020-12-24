@@ -34,11 +34,23 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ '/' }}">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ '/course' }}">Course</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Classes
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+              <a class="dropdown-item" href="{{ '/course' }}">Courses</a>
+              <a class="dropdown-item" href="{{ '/schedules' }}">Schedules</a>
+            </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ '/services' }}">Service</a>
+          <li class="nav-item active dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Facilities
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+              <a class="dropdown-item active" href="{{ '/services' }}">Services</a>
+              <a class="dropdown-item" href="{{ '/classrooms' }}">Classrooms</a>
+            </div>
           </li>   
           <li class="nav-item">
             <a class="nav-link" href="login.html">Login</a>
