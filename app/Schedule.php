@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Schedule extends Model
 {
-    //
+    protected $table = 'schedules';
+    protected $fillable = ['materi', 'pemateri', 'lama_pertemuan', 'waktu'];
 }
