@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Manage Schedule</title>
+  <title>Manage User</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -72,16 +72,16 @@
       </nav>
 
       <div class="container-fluid">
-        <h1 class="mt-4">Manage Schedule</h1><br>
+        <h1 class="mt-4">Manage User</h1><br>
 
         <!-- Post Content Column -->
         <div class="col-lg-8"> <br>
             <div class="card">
                 <div class="card-header text-center">
-                    <h3>All Schedules</h3>
+                    <h3>All Users</h3>
                 </div>
-                <a href="schedule/add" class="btn btn-primary">Add Schedule</a>
-                <a href="schedule/print_pdf" class="btn btn-primary" target="_blank">Print PDF</a>
+                <a href="user/add" class="btn btn-primary">Add User</a>
+                <a href="user/print_pdf" class="btn btn-primary" target="_blank">Print PDF</a>
                 </br></br>
             </div>
         <!-- Title -->
@@ -90,23 +90,21 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Theme</th>
-                        <th>Tutor</th>
-                        <th>Time per Session</th>
-                        <th>Time Schedule</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($schedules as $sc)
+                    @foreach($users as $u)
                     <tr>
-                        <td>{{ $sc->id }}</td>
-                        <td>{{ $sc->materi }}</td>
-                        <td>{{ $sc->pemateri }}</td>
-                        <td>{{ $sc->lama_pertemuan }}</td>
-                        <td>{{ $sc->waktu }}</td>
+                        <td>{{ $u->id }}</td>
+                        <td>{{ $u->name }}</td>
+                        <td>{{ $u->email }}</td>
+                        <td>{{ $u->password }}</td>
                         <td>
-                            <a href="schedule/edit/{{ $sc->id }}" class="badge badge-warning">Edit</a>
-                            <a href="schedule/delete/{{ $sc->id }}" class="badge badge-danger">Delete</a>
+                            <a href="user/edit/{{ $u->id }}" class="badge badge-warning">Edit</a>
+                            <a href="user/delete/{{ $u->id }}" class="badge badge-danger">Delete</a>
                         </td>
                     </tr>
                     @endforeach

@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Manage</title>
+  <title>Manage Student</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,14 +26,14 @@
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Manage</div>
+      <div href="{{ '/manage-dashboard' }}"class="sidebar-heading">Manage Dashboard</div>
       <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Classrooms</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Courses</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Schedules</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Services</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Students</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Users</a>
+        <a href="{{ '/manage-classroom' }}" class="list-group-item list-group-item-action bg-light">Classrooms</a>
+        <a href="{{ '/manage-course' }}" class="list-group-item list-group-item-action bg-light">Courses</a>
+        <a href="{{ '/manage-schedule' }}" class="list-group-item list-group-item-action bg-light">Schedules</a>
+        <a href="{{ '/manage-service' }}" class="list-group-item list-group-item-action bg-light">Services</a>
+        <a href="{{ '/manage-student' }}" class="list-group-item list-group-item-action bg-light">Students</a>
+        <a href="{{ '/manage-user' }}" class="list-group-item list-group-item-action bg-light">Users</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -50,11 +50,11 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="{{ '/' }}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Manage</a>
+              <a class="nav-link" href="{{ '/manage-dashboard' }}">Manage</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -72,8 +72,52 @@
       </nav>
 
       <div class="container-fluid">
-        <h1 class="mt-4">Manage Page</h1>
-        <p>Only admin can access this page and manage data site.</p>
+        <h1 class="mt-4">Manage Student</h1><br>
+
+        <!-- Post Content Column -->
+        <div class="col-lg-8"> <br>
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3>All Students</h3>
+                </div>
+                <a href="student/print_pdf" class="btn btn-primary" target="_blank">Print PDF</a>
+                </br></br>
+            </div>
+        <!-- Title -->
+            <div class="card body">
+                <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Telp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($students as $st)
+                    <tr>
+                        <td>{{ $st->id }}</td>
+                        <td>{{ $st->nama_siswa }}</td>
+                        <td>{{ $st->jk }}</td>
+                        <td>{{ $st->usia }}</td>
+                        <td>{{ $st->alamat }}</td>
+                        <td>{{ $st->email }}</td>
+                        <td>{{ $st->no_telp }}</td>
+                        <td>
+                            <a href="student/edit/{{ $st->id }}" class="badge badge-warning">Edit</a>
+                            <a href="student/delete/{{ $st->id }}" class="badge badge-danger">Delete</a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+                </table>
+                </br></br>
+            </div>
+        </div>
       </div>
       
     </div>

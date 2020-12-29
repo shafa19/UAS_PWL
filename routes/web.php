@@ -49,6 +49,20 @@ Route::post('/classroom/update/{id}', 'ClassroomController@update');
 Route::get('/classroom/delete/{id}', 'ClassroomController@delete');
 Route::get('/classroom/print_pdf', 'ClassroomController@print_pdf');
 
+Route::get('/pendaftaran', 'StudentController@add');
+Route::post('/pendaftaran/create', 'StudentController@create');
+Route::get('/student/edit/{id}', 'Studentontroller@edit');
+Route::post('/student/update/{id}', 'StudentController@update');
+Route::get('/student/delete/{id}', 'StudentController@delete');
+Route::get('/student/print_pdf', 'StudentController@print_pdf');
+
+Route::get('/user/add', 'UserController@add');
+Route::post('/user/create', 'UserController@create');
+Route::get('/user/edit/{id}', 'UserController@edit');
+Route::post('/user/update/{id}', 'UserController@update');
+Route::get('/user/delete/{id}', 'UserController@delete');
+Route::get('/user/print_pdf', 'UserController@print_pdf');
+
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
@@ -58,3 +72,5 @@ Route::get('/manage-course', 'CourseController@index')->name('manage-course');
 Route::get('/manage-service', 'ServiceController@index')->name('manage-service');
 Route::get('/manage-classroom', 'ClassroomController@index')->name('manage-classroom');
 Route::get('/manage-schedule', 'ScheduleController@index')->name('manage-schedule');
+Route::get('/manage-student', 'StudentController@index')->name('manage-student');
+Route::get('/manage-user', 'UserController@index')->name('manage-user');

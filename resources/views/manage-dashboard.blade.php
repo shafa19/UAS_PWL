@@ -32,7 +32,7 @@
         <a href="{{ '/manage-course' }}" class="list-group-item list-group-item-action bg-light">Courses</a>
         <a href="{{ '/manage-schedule' }}" class="list-group-item list-group-item-action bg-light">Schedules</a>
         <a href="{{ '/manage-service' }}" class="list-group-item list-group-item-action bg-light">Services</a>
-        <a href="{{ '/manage-service' }}" class="list-group-item list-group-item-action bg-light">Students</a>
+        <a href="{{ '/manage-student' }}" class="list-group-item list-group-item-action bg-light">Students</a>
         <a href="{{ '/manage-user' }}" class="list-group-item list-group-item-action bg-light">Users</a>
       </div>
     </div>
