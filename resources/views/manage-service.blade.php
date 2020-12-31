@@ -49,11 +49,11 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="{{ '/' }}">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{{ '/home' }}">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <a class="nav-link" href="{{ '/manage-dashboard' }}">Manage</a>
             </li>
             <li class="nav-item dropdown">
@@ -66,7 +66,18 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
-            </li>
+            </li>-->
+            <li class="nav-item">
+          <a class="nav-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+          </li> 
           </ul>
         </div>
       </nav>
@@ -92,6 +103,7 @@
                         <th>No</th>
                         <th>Service Name</th>
                         <th>Detail</th>
+                        <th>Image</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -100,6 +112,9 @@
                         <td>{{ $s->id }}</td>
                         <td>{{ $s->nama_service }}</td>
                         <td>{{ $s->keterangan }}</td>
+                        <td>
+                        <img width="150px" src="{{('storage/'.$s->service_pic)}}" class="card-img-top" alt="Card image cap">
+                        </td>
                         <td>
                             <a href="service/edit/{{ $s->id }}" class="badge badge-warning">Edit</a>
                             <a href="service/delete/{{ $s->id }}" class="badge badge-danger">Delete</a>

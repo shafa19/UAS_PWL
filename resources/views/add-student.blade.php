@@ -30,34 +30,48 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{{ '/' }}">Home</a>
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
+          @can('user-display')
+            <a class="nav-link" href="{{ url('/home') }}">Home</a>
+          @endcan
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Classes
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
-              <a class="dropdown-item" href="{{ '/course' }}">Courses</a>
-              <a class="dropdown-item" href="{{ '/schedules' }}">Schedules</a>
-            </div>
+          <li class="nav-item {{ Route::is('course') ? 'active' : '' }}">
+          @can('user-display')
+            <a class="nav-link" href="{{ url('/course') }}">Courses</a>
+          @endcan
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Facilities
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
-              <a class="dropdown-item" href="{{ '/services' }}">Services</a>
-              <a class="dropdown-item" href="{{ '/classrooms' }}">Classrooms</a>
-            </div>
+          <li class="nav-item {{ Route::is('services') ? 'active' : '' }}">
+          @can('user-display')
+            <a class="nav-link" href="{{ url('/services') }}">Services</a>
+          @endcan
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
+          <li class="nav-item {{ Route::is('classrooms') ? 'active' : '' }}">
+          @can('user-display')
+            <a class="nav-link" href="{{ url('/classrooms') }}">Classroom</a>
+          @endcan
           </li>   
+          <li class="nav-item active {{ Route::is('pendaftaran') ? 'active' : '' }}">
+          @can('user-display')
+            <a class="nav-link" href="{{ url('/pendaftaran') }}">Registration</a>
+          </li>  
+          @endcan
+          <li class="nav-item {{ Route::is('manage-dashboard') ? 'active' : '' }}">
+          @can('manage-articles')
+            <a class="nav-link" href="{{ url('/manage-dashboard') }}">Manage</a>
+          @endcan
+          </li>
           <li class="nav-item">
-            <a class="nav-link" href="register.html">Register</a>
-          </li>   
+          <a class="nav-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+          </li> 
         </ul>
       </div>
     </div>
@@ -72,7 +86,7 @@
       <div class="col-lg-8">
         <br><br>
         <!-- Title -->
-        <form action="/student/create" method="post" enctype="multipart/form-data">
+        <form action="/pendaftaran/create" method="post" enctype="multipart/form-data">
             @csrf 
             <div class="form-group">
                 <label for="nama_siswa">Name</label>
@@ -80,7 +94,11 @@
             </div>
             <div class="form-group">
                 <label for="jk">Gender</label>
-                <input type="text" class="form-control" required="required" name="jk"></br>
+                <select type="text" class="form-control" required="required" name="jk">
+                <option>Male</option>
+                <option>Female</option>
+                </select>
+                </br>
             </div>
             <div class="form-group">
                 <label for="usia">Age</label>
@@ -98,7 +116,16 @@
                 <label for="no_telp">Phone Number</label>
                 <input type="text" class="form-control" required="required" name="no_telp"></br>
             </div>
-            <button href="{{ '/course' }}" class="btn btn-primary float-left">Back to Course</button>
+            <div class="form-group">
+                <label for="pilihankursus">Choose your course</label>
+                <ul class="list-styled mb-0">
+                  <li>Conversation Class</li>
+                  <li>IELTS Preparation Class</li>
+                  <li>Academic Class</li>
+                  <li>Private Class</li>
+                </ul>
+                <input type="text" class="form-control" required="required" name="pilihankursus"></br>
+            </div>
             <button type="submit" name="add" class="btn btn-primary float-right">Join Course!</button>
         </form>
         <br><br><br><br><br><br>

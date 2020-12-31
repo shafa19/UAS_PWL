@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Service;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Gate;
 use PDF;
 
 class ServiceController extends Controller
@@ -29,7 +30,7 @@ class ServiceController extends Controller
 
 	public function create(Request $request){
 		if($request->file('service_pic')){
-			$course_pic = $request->file('service_pic')->store('images','public');
+			$service_pic = $request->file('service_pic')->store('images','public');
 		}
 		Service::create([
 			'nama_service' => $request->nama_service,
@@ -52,7 +53,7 @@ class ServiceController extends Controller
 		if($services->service_pic && file_exists(storage_path('app/public/'.$services->service_pic))){
 			\Storage::delete('public/'.$services->service_pic);
 		}
-		$services = $request->file('service_pic')->store('images','public');
+		$service_pic = $request->file('service_pic')->store('images','public');
 		$services->service_pic = $service_pic;
 
 		$services->save();
@@ -65,13 +66,7 @@ class ServiceController extends Controller
 		return redirect('/manage-service');
 	}
 
-	// public function __construct(){
-	// 	//$this->middleware('auth');
-	// 	$this->middleware(function($request, $next){
-	// 		if(Gate::allows('manage-articles')) return $next($request);
-	// 		abort(403, 'Anda tidak memiliki cukup hak akses');
-	// 	});
-	// }
+	
 
 	public function print_pdf(){
 		$services = Service::all();

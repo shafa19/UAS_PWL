@@ -23,6 +23,7 @@
 <body>
 
   <!-- Navigation -->
+  <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="{{ '/' }}">English Smart</a>
@@ -30,34 +31,48 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{{ '/' }}">Home</a>
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
+          @can('user-display')
+            <a class="nav-link" href="{{ url('/home') }}">Home</a>
+          @endcan
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Classes
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-              <a class="dropdown-item" href="{{ '/course' }}">Courses</a>
-              <a class="dropdown-item" href="{{ '/schedules' }}">Schedules</a>
-            </div>
+          <li class="nav-item {{ Route::is('course') ? 'active' : '' }}">
+          @can('user-display')
+            <a class="nav-link" href="{{ url('/course') }}">Courses</a>
+          @endcan
           </li>
-          <li class="nav-item active dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Facilities
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-              <a class="dropdown-item active" href="{{ '/services' }}">Services</a>
-              <a class="dropdown-item" href="{{ '/classrooms' }}">Classrooms</a>
-            </div>
+          <li class="nav-item active {{ Route::is('services') ? 'active' : '' }}">
+          @can('user-display')
+            <a class="nav-link" href="{{ url('/services') }}">Services</a>
+          @endcan
+          </li>
+          <li class="nav-item {{ Route::is('classrooms') ? 'active' : '' }}">
+          @can('user-display')
+            <a class="nav-link" href="{{ url('/classrooms') }}">Classroom</a>
+          @endcan
           </li>   
+          <li class="nav-item {{ Route::is('pendaftaran') ? 'active' : '' }}">
+          @can('user-display')
+            <a class="nav-link" href="{{ url('/pendaftaran') }}">Registration</a>
+          </li>  
+          @endcan
+          <li class="nav-item {{ Route::is('manage-dashboard') ? 'active' : '' }}">
+          @can('manage-articles')
+            <a class="nav-link" href="{{ url('/manage-dashboard') }}">Manage</a>
+          @endcan
+          </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
-          </li>   
-          <li class="nav-item">
-            <a class="nav-link" href="register.html">Register</a>
-          </li>   
+          <a class="nav-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+          </li> 
         </ul>
       </div>
     </div>
@@ -86,7 +101,7 @@
         <!-- Blog Post -->
         @foreach($services as $s)
         <div class="card mb-4">
-          <img class="card-img-top" src="{{ $s->service_pic }}" alt="Card image cap">
+          <img class="card-img-top" src="{{asset('storage/'.$s->service_pic)}}"alt="Card image cap">
           <div class="card-body">
             <h2 class="card-title">{{ $s->nama_service }}</h2>
             <p class="card-text">{{ $s->keterangan }}</p>

@@ -30,14 +30,14 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+      <ul class="navbar-nav ml-auto">
+          <!--<li class="nav-item">
             <a class="nav-link" href="{{ '/' }}">Home</a>
-          </li>
+          </li>-->
           <li class="nav-item">
-            <a class="nav-link" href="{{ '/manage-dashboard' }}">Manage</a>
+            <a class="nav-link" href="{{ '/manage-course' }}">Manage</a>
           </li>
-          <li class="nav-item dropdown">
+          <!--<li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dropdown
               </a>
@@ -47,7 +47,18 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
-          </li>
+          </li>-->
+          <li class="nav-item">
+          <a class="nav-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+          </li> 
         </ul>
       </div>
     </div>
@@ -86,7 +97,6 @@
                 <input type="file" class="form-control" required="required" name="course_pic" value="{{$courses->course_pic}}"></br>
                 <img width="150px" src="{{asset('storage/'.$courses->course_pic)}}">
             </div>
-            <button href="/manage-course" class="btn btn-primary float-left">Back</button>
             <button type="submit" name="edit" class="btn btn-primary float-right">Edit Course</button>
         </form>
         <br><br><br><br><br><br>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Student;
 use App\Course;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Gate;
 use PDF;
 
 class StudentController extends Controller
@@ -20,19 +21,16 @@ class StudentController extends Controller
 	}
 
 	public function create(Request $request){
-        if($request->file('bukti_bayar')){
-			$bukti_bayar = $request->file('bukti_bayar')->store('images','public');
-		}
 		Student::create([
 			'nama_siswa' => $request->nama_siswa,
 			'jk' => $request->jk,
 			'usia' => $request->usia,
             'alamat' => $request->alamat,
             'email' => $request->email,
-            'no_telp' => $request->no_telp,
-            'bukti_bayar' => $bukti_bayar
+			'no_telp' => $request->no_telp,
+			'pilihankursus' => $request->pilihankursus,
 		]);
-		return redirect('/course');
+		return redirect('/success');
 	}
 
 	public function edit($id){
@@ -47,13 +45,8 @@ class StudentController extends Controller
 		$students->usia = $request->usia;
         $students->alamat = $request->alamat;
         $students->email = $request->email;
-        $students->no_telp = $request->no_telp;
-
-		if($students->bukti_bayar && file_exists(storage_path('app/public/'.$students->bukti_bayar))){
-			\Storage::delete('public/'.$students->bukti_bayar);
-		}
-		$students = $request->file('bukti_bayar')->store('images','public');
-		$students->bukti_bayar = $cbukti_bayar;
+		$students->no_telp = $request->no_telp;
+		$students->pilihankursus = $request->pilihankursus;
 
 		$students->save();
 		return redirect('/manage-student');
@@ -65,13 +58,7 @@ class StudentController extends Controller
 		return redirect('/manage-student');
 	}
 
-	// public function __construct(){
-	// 	//$this->middleware('auth');
-	// 	$this->middleware(function($request, $next){
-	// 		if(Gate::allows('manage-articles')) return $next($request);
-	// 		abort(403, 'Anda tidak memiliki cukup hak akses');
-	// 	});
-	// }
+	
 
 	public function print_pdf(){
 		$students = Student::all();

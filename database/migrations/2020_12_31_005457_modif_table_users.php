@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPilihankursusOnStudentsTable extends Migration
+class ModifTableUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddPilihankursusOnStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::table('students', function(Blueprint $table){
-            $table->string('pilihankursus');
+        Schema::table('users',function (Blueprint $table){
+            $table->string("roles");
         });
     }
 
@@ -25,7 +25,8 @@ class AddPilihankursusOnStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::table('students', function(Blueprint $table){
+        Schema::table('users',function (Blueprint $table){
+            $table->dropColumn("roles");
         });
     }
 }

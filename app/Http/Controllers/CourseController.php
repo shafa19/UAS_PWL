@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Course;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Gate;
 use PDF;
 
 class CourseController extends Controller
@@ -16,11 +17,11 @@ class CourseController extends Controller
 	}
 	
 	public function index(){
-		$courses = Course::all();
-		return view('manage-course',['courses' => $courses]);
-	}
+	 	$courses = Course::all();
+	 	return view('manage-course',['courses' => $courses]);
+	 }
 
-	public function add(){
+	 public function add(){
 		return view('add-course');
 	}
 
@@ -53,7 +54,7 @@ class CourseController extends Controller
 		if($courses->course_pic && file_exists(storage_path('app/public/'.$courses->course_pic))){
 			\Storage::delete('public/'.$courses->course_pic);
 		}
-		$courses = $request->file('course_pic')->store('images','public');
+		$course_pic = $request->file('course_pic')->store('images','public');
 		$courses->course_pic = $course_pic;
 
 		$courses->save();
@@ -66,13 +67,7 @@ class CourseController extends Controller
 		return redirect('/manage-course');
 	}
 
-	// public function __construct(){
-	// 	//$this->middleware('auth');
-	// 	$this->middleware(function($request, $next){
-	// 		if(Gate::allows('manage-articles')) return $next($request);
-	// 		abort(403, 'Anda tidak memiliki cukup hak akses');
-	// 	});
-	// }
+	
 
 	public function print_pdf(){
 		$courses = Course::all();

@@ -49,11 +49,11 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="{{ '/' }}">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{{ '/home' }}">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <a class="nav-link" href="{{ '/manage-dashboard' }}">Manage</a>
             </li>
             <li class="nav-item dropdown">
@@ -66,7 +66,18 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
-            </li>
+            </li>-->
+            <li class="nav-item">
+          <a class="nav-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+          </li> 
           </ul>
         </div>
       </nav>
@@ -75,7 +86,7 @@
         <h1 class="mt-4">Manage Student</h1><br>
 
         <!-- Post Content Column -->
-        <div class="col-lg-8"> <br>
+        <div class="col-lg-12"> <br>
             <div class="card">
                 <div class="card-header text-center">
                     <h3>All Students</h3>
@@ -95,6 +106,7 @@
                         <th>Address</th>
                         <th>Email</th>
                         <th>Telp</th>
+                        <th>Course</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -107,6 +119,7 @@
                         <td>{{ $st->alamat }}</td>
                         <td>{{ $st->email }}</td>
                         <td>{{ $st->no_telp }}</td>
+                        <td>{{ $st->pilihankursus}}</td>
                         <td>
                             <a href="student/edit/{{ $st->id }}" class="badge badge-warning">Edit</a>
                             <a href="student/delete/{{ $st->id }}" class="badge badge-danger">Delete</a>

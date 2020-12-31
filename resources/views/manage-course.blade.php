@@ -51,9 +51,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="{{ '/' }}">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{{ '/home' }}">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <a class="nav-link" href="{{ '/manage-dashboard' }}">Manage</a>
             </li>
             <li class="nav-item dropdown">
@@ -66,7 +66,18 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
-            </li>
+            </li>-->
+            <li class="nav-item">
+          <a class="nav-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+          </li> 
           </ul>
         </div>
       </nav>
@@ -75,7 +86,7 @@
         <h1 class="mt-4">Manage Course</h1><br>
 
         <!-- Post Content Column -->
-        <div class="col-lg-8"> <br>
+        <div class="col-lg-10"> <br>
             <div class="card">
                 <div class="card-header text-center">
                     <h3>All Courses</h3>
@@ -94,6 +105,7 @@
                         <th>Short Desc</th>
                         <th>Long Desc</th>
                         <th>Price</th>
+                        <th>Image</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -104,6 +116,9 @@
                         <td>{{ $c->short_desc }}</td>
                         <td>{{ $c->long_desc }}</td>
                         <td>{{ $c->harga }}</td>
+                        <td>
+                        <img width="150px" src="{{('storage/'.$c->course_pic)}}" class="card-img-top" alt="Card image cap">
+                        </td>
                         <td>
                             <a href="course/edit/{{ $c->id }}" class="badge badge-warning">Edit</a>
                             <a href="course/delete/{{ $c->id }}" class="badge badge-danger">Delete</a>

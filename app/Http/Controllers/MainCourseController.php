@@ -16,4 +16,6 @@ class MainCourseController extends Controller
         return view('main-course')
             ->with('courses', $courses);
     }
+
+    
 }

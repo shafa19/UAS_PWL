@@ -30,14 +30,14 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+      <ul class="navbar-nav ml-auto">
+          <!--<li class="nav-item">
             <a class="nav-link" href="{{ '/' }}">Home</a>
-          </li>
+          </li>-->
           <li class="nav-item">
-            <a class="nav-link" href="{{ '/manage-dashboard' }}">Manage</a>
+            <a class="nav-link" href="{{ '/manage-service' }}">Manage</a>
           </li>
-          <li class="nav-item dropdown">
+          <!--<li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dropdown
               </a>
@@ -47,7 +47,18 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
-          </li>
+          </li>-->
+          <li class="nav-item">
+          <a class="nav-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+          </li> 
         </ul>
       </div>
     </div>
@@ -76,7 +87,6 @@
                 <label for="service_pic">Service Picture</label>
                 <input type="file" class="form-control" required="required" name="service_pic"></br>
             </div>
-            <button href="{{ '/manage-service' }}" class="btn btn-primary float-left">Back</button>
             <button type="submit" name="add" class="btn btn-primary float-right">Add Service</button>
         </form>
         <br><br><br><br><br><br>

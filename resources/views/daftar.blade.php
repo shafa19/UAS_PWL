@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Schedules</title>
+  <title>English Smart's Courses</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@
             <a class="nav-link" href="{{ url('/home') }}">Home</a>
           @endcan
           </li>
-          <li class="nav-item active {{ Route::is('course') ? 'active' : '' }}">
+          <li class="nav-item {{ Route::is('course') ? 'active' : '' }}">
           @can('user-display')
             <a class="nav-link" href="{{ url('/course') }}">Courses</a>
           @endcan
@@ -51,7 +51,7 @@
             <a class="nav-link" href="{{ url('/classrooms') }}">Classroom</a>
           @endcan
           </li>   
-          <li class="nav-item {{ Route::is('pendaftaran') ? 'active' : '' }}">
+          <li class="nav-item active{{ Route::is('pendaftaran') ? 'active' : '' }}">
           @can('user-display')
             <a class="nav-link" href="{{ url('/pendaftaran') }}">Registration</a>
           </li>  
@@ -76,50 +76,38 @@
       </div>
     </div>
   </nav>
+  
   <!-- Page Content -->
   <div class="container">
 
     <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3">Schedules
-    </h1>
-
+    <br><br><br>
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="{{ '/course' }}">Courses</a>
+        <a>English Smart</a>
       </li>
-      <li class="breadcrumb-item active">Schedules</li>
+      <li class="breadcrumb-item active">Joining Course</li>
     </ol>
 
-    @foreach($schedules as $sc)
-    <div class="mb-4" id="accordion" role="tablist" aria-multiselectable="true">
-      <div class="card">
-        <div class="card-header" role="tab" id="headingOne">
-          <h5 class="mb-0">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">{{ $sc->materi }}</a>
-          </h5>
-        </div>
-
-        <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-          <div class="card-body">
-            <p><b>Mentor   : </b> {{ $sc->pemateri }}</p>
-            <p><b>Schedule : </b> {{ $sc->waktu }}</p>
-            <p><b>Session  : </b> {{ $sc->lama_pertemuan }} minutes</p>
+    <!-- Blog Post -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-6">
+          <div class="alert alert-success">
+	        <h6>Pendaftaran Anda Telah Berhasil Direkam</h6>
+            <p>Please contact our admin for payment information</p>
+          </div>
+            <h2 class="card-title">Thanks for joining our course!</h2>
+            <p class="card-text">We hope we can help you to improve your English skills. See you at the classroom!</p>
           </div>
         </div>
       </div>
     </div>
-    @endforeach
-
+    
   </div>
   <!-- /.container -->
 
-  <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; English Smart 2020</p>
-    </div>
-    <!-- /.container -->
-  </footer>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

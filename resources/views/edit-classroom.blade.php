@@ -31,13 +31,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+          <!--<li class="nav-item">
             <a class="nav-link" href="{{ '/' }}">Home</a>
-          </li>
+          </li>-->
           <li class="nav-item">
-            <a class="nav-link" href="{{ '/manage-dashboard' }}">Manage</a>
+            <a class="nav-link" href="{{ '/manage-classroom' }}">Manage</a>
           </li>
-          <li class="nav-item dropdown">
+          <!--<li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dropdown
               </a>
@@ -47,7 +47,18 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
-          </li>
+          </li>-->
+          <li class="nav-item">
+          <a class="nav-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+          </li> 
         </ul>
       </div>
     </div>
@@ -67,7 +78,7 @@
             <input type="hidden" name="id" value="{{$classrooms->id}}"></br>
             <div class="form-group">
                 <label for="nama_ruang">Classroom Name</label>
-                <input type="text" class="form-control" required="required" name="nama_course" value="{{$classrooms->nama_ruang}}"></br>
+                <input type="text" class="form-control" required="required" name="nama_ruang" value="{{$classrooms->nama_ruang}}"></br>
             </div>
             <div class="form-group">
                 <label for="kapasitas">Capacity</label>
@@ -75,10 +86,9 @@
             </div>
             <div class="form-group">
                 <label for="ruang_pic">Classroom Picture</label>
-                <input type="file" class="form-control" required="required" name="ruang_pic" value="{{$classrooms->room_pic}}"></br>
+                <input type="file" class="form-control" required="required" name="ruang_pic" value="{{$classrooms->ruang_pic}}"></br>
                 <img width="150px" src="{{asset('storage/'.$classrooms->ruang_pic)}}">
             </div>
-            <button href="/manage-classroom" class="btn btn-primary float-left">Back</button>
             <button type="submit" name="edit" class="btn btn-primary float-right">Edit Classroom</button>
         </form>
         <br><br><br><br><br><br>

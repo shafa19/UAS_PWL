@@ -11,11 +11,14 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
-Route::get('/', 'Home2Controller@home');
+Route::get('/', 'Home1Controller@home');
+Route::get('/home', 'Home2Controller@home');
+Route::get('/success', 'Home2Controller@daftarsukses');
+
 Route::get('/course', 'MainCourseController');
 Route::get('/course/add', 'CourseController@add');
 Route::post('/course/create', 'CourseController@create');
@@ -49,9 +52,36 @@ Route::post('/classroom/update/{id}', 'ClassroomController@update');
 Route::get('/classroom/delete/{id}', 'ClassroomController@delete');
 Route::get('/classroom/print_pdf', 'ClassroomController@print_pdf');
 
+//Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
+
+// Authentication Routes...
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// Registration Routes...
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
+
+// Password Reset Routes...
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
+// Halaman Kelola
+Route::get('/manage-dashboard', 'Home2Controller@manage');
+Route::get('/manage-course', 'CourseController@index')->name('manage-course');
+Route::get('/manage-service', 'ServiceController@index')->name('manage-service');
+Route::get('/manage-classroom', 'ClassroomController@index')->name('manage-classroom');
+Route::get('/manage-schedule', 'ScheduleController@index')->name('manage-schedule');
+
+
 Route::get('/pendaftaran', 'StudentController@add');
 Route::post('/pendaftaran/create', 'StudentController@create');
-Route::get('/student/edit/{id}', 'Studentontroller@edit');
+Route::get('/student/edit/{id}', 'StudentController@edit');
 Route::post('/student/update/{id}', 'StudentController@update');
 Route::get('/student/delete/{id}', 'StudentController@delete');
 Route::get('/student/print_pdf', 'StudentController@print_pdf');
@@ -62,15 +92,5 @@ Route::get('/user/edit/{id}', 'UserController@edit');
 Route::post('/user/update/{id}', 'UserController@update');
 Route::get('/user/delete/{id}', 'UserController@delete');
 Route::get('/user/print_pdf', 'UserController@print_pdf');
-
-Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/manage-dashboard', 'Home2Controller@manage');
-Route::get('/manage-course', 'CourseController@index')->name('manage-course');
-Route::get('/manage-service', 'ServiceController@index')->name('manage-service');
-Route::get('/manage-classroom', 'ClassroomController@index')->name('manage-classroom');
-Route::get('/manage-schedule', 'ScheduleController@index')->name('manage-schedule');
 Route::get('/manage-student', 'StudentController@index')->name('manage-student');
 Route::get('/manage-user', 'UserController@index')->name('manage-user');

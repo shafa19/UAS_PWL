@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>English Smart Introduction</title>
+  <title>Welcome to English Smart</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -31,47 +31,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active {{ Route::is('home') ? 'active' : '' }}">
-          @can('user-display')
-            <a class="nav-link" href="{{ url('/home') }}">Home</a>
-          @endcan
-          </li>
-          <li class="nav-item {{ Route::is('course') ? 'active' : '' }}">
-          @can('user-display')
-            <a class="nav-link" href="{{ url('/course') }}">Courses</a>
-          @endcan
-          </li>
-          <li class="nav-item {{ Route::is('services') ? 'active' : '' }}">
-          @can('user-display')
-            <a class="nav-link" href="{{ url('/services') }}">Services</a>
-          @endcan
-          </li>
-          <li class="nav-item {{ Route::is('classrooms') ? 'active' : '' }}">
-          @can('user-display')
-            <a class="nav-link" href="{{ url('/classrooms') }}">Classroom</a>
-          @endcan
-          </li>   
-          <li class="nav-item {{ Route::is('pendaftaran') ? 'active' : '' }}">
-          @can('user-display')
-            <a class="nav-link" href="{{ url('/pendaftaran') }}">Registration</a>
-          </li>  
-          @endcan
-          <li class="nav-item {{ Route::is('manage-dashboard') ? 'active' : '' }}">
-          @can('manage-articles')
-            <a class="nav-link" href="{{ url('/manage-dashboard') }}">Manage</a>
-          @endcan
-          </li>
           <li class="nav-item">
-          <a class="nav-link" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-          </li> 
+            <a class="nav-link" href="{{'login'}}">Login</a>
+          </li>   
         </ul>
       </div>
     </div>
@@ -121,24 +83,9 @@
   <!-- Page Content -->
   <div class="container">
 
-    <h1 class="my-4">Welcome to English Smart</h1>
+    <h1 class="my-4">Apa itu English Smart ?</h1>
+      <p></p>
       <p>English Smart adalah sebuah lembaga kursus Bahasa Inggris yang berdiri sejak tanggal 1 September 2017 dan berlokasi di Jalan Soekarno Hatta No.9, Malang, Jawa Timur. Lokasi kursus English Smart sangat strategis dan berada dekat dengan kampus-kampus utama di Malang. Program kursus Bahasa Inggris yang ditawarkan oleh English Smart selain dalam bentuk kursus Bahasa Inggris, kami juga melayani bimbingan belajar Bahasa Inggris untuk peserta didik yang membutuhkan bantuan dalam pelajaran Bahasa Inggris di sekolah maupun kursus percakapan Bahasa Inggris bagi Anda yang akan melakukan presentasi dalam Bahasa Inggris, Daily Conversation, Public Speaking dan lain-lain. English Smart juga memiliki program English for Specific Purpose untuk berbagai macam kebutuhan Bahasa Inggris Anda baik dalam hal pendidikan maupun bisnis.</p>
-    <br>
-
-    <!-- Features Section -->
-    <div class="row">
-      <div class="col-lg-6">
-        <h3>Visi</h3>
-        <p>Menjadi Lembaga Pendidikan Kursus Bahasa Inggris yang berstandar pendidikan nasional, bermutu, inovatif, kreatif, mudah dipahami dan menyenangkan dengan lulusan yang mampu bersaing secara global dan mengikuti perkembangan zaman.</p>
-        <h3>Misi</h3>
-        <p>1. Menyediakan tempat kursus yang berstandar pendidikan nasional.</p>
-        <p>2. Mendidik lulusan yang berketrampilan, inovatif, kreatif dan mudah dipahami dibidang Bahasa Inggris didukung dengan wawasan yang luas.</p>
-        <p>3. Menciptakan suasana kelas yang kondusif dan menyenangkan serta didukung oleh pengajar yang kompeten dibidangnya.</p>
-      </div>
-      <div class="col-lg-6">
-        <img class="img-fluid rounded" src="https://images.unsplash.com/photo-1570338896564-2340647bbe81?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1052&q=80" alt="">
-      </div>
-    </div>
     <br>
 
     <!-- /.row -->

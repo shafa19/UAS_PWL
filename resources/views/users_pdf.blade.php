@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Print Student Report</title>
+    <title>Print User Report</title>
 </head>
 <body>
     <style type="text/css">
@@ -26,30 +26,26 @@
     </style>
 
     <center>
-        <h5>Students Data Report</h5>
+        <h5>Users Data Report</h5>
     </center>
     
     <table class='table table-bordered'>
         <thead>
             <tr>
                 <th>No</th>
-                <th>Student Name</th>
-                <th>Address</th>
+                <th>Userame</th>
                 <th>Email</th>
-                <th>Phone Number</th>
-                <th>Course</th>
+                <th>Roles</th>
             </tr>
         </thead>
         <tbody>
             @php $i=1 @endphp
-            @foreach($students as $st)
+            @foreach($users as $u)
             <tr>
                 <td>{{ $i++ }}</td>
-                <td>{{ $st->nama_siswa }}</td>
-                <td>{{ $st->alamat }}</td>
-                <td>{{ $st->email }}</td>
-                <td>{{ $st->no_telp }}</td>
-                <td>{{ $st->pilihankursus }}</td>
+                <td>{{ $u->name }}</td>
+                <td>{{ $u->email }}</td>
+                <td>{{ $u->roles }}</td>
             </tr>
             @endforeach
         </tbody>

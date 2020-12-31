@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Schedule;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Gate;
 use PDF;
 
 class ScheduleController extends Controller
@@ -43,7 +44,7 @@ class ScheduleController extends Controller
 	}
 
 	public function update($id, Request $request){
-		$schedules = Classroom::find($id);
+		$schedules = Schedule::find($id);
 		$schedules->materi = $request->materi;
         $schedules->pemateri = $request->pemateri;
         $schedules->lama_pertemuan = $request->lama_pertemuan;
@@ -59,13 +60,7 @@ class ScheduleController extends Controller
 		return redirect('/manage-schedule');
 	}
 
-	// public function __construct(){
-	// 	//$this->middleware('auth');
-	// 	$this->middleware(function($request, $next){
-	// 		if(Gate::allows('manage-articles')) return $next($request);
-	// 		abort(403, 'Anda tidak memiliki cukup hak akses');
-	// 	});
-	// }
+	
 
 	public function print_pdf(){
 		$schedules = Schedule::all();

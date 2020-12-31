@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use App\User;
 use PDF;
 
@@ -54,4 +55,6 @@ class UserController extends Controller
 		$pdf = PDF::loadview('users_pdf',['users'=>$users]);
 		return $pdf->stream();
 	}
+
+	
 }

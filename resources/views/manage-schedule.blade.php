@@ -32,7 +32,7 @@
         <a href="{{ '/manage-course' }}" class="list-group-item list-group-item-action bg-light">Courses</a>
         <a href="{{ '/manage-schedule' }}" class="list-group-item list-group-item-action bg-light">Schedules</a>
         <a href="{{ '/manage-service' }}" class="list-group-item list-group-item-action bg-light">Services</a>
-        <a href="{{ '/manage-student' }}" class="list-group-item list-group-item-action bg-light">Students</a>
+        <a href="{{ '/manage-service' }}" class="list-group-item list-group-item-action bg-light">Students</a>
         <a href="{{ '/manage-user' }}" class="list-group-item list-group-item-action bg-light">Users</a>
       </div>
     </div>
@@ -49,11 +49,11 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="{{ '/' }}">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{{ '/home' }}">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <a class="nav-link" href="{{ '/manage-dashboard' }}">Manage</a>
             </li>
             <li class="nav-item dropdown">
@@ -66,7 +66,18 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
-            </li>
+            </li>-->
+            <li class="nav-item">
+          <a class="nav-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+          </li> 
           </ul>
         </div>
       </nav>

@@ -30,34 +30,48 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{{ '/' }}">Home</a>
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
+          @can('user-display')
+            <a class="nav-link" href="{{ url('/home') }}">Home</a>
+          @endcan
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Classes
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-              <a class="dropdown-item" href="{{ '/course' }}">Courses</a>
-              <a class="dropdown-item" href="{{ '/schedules' }}">Schedules</a>
-            </div>
+          <li class="nav-item {{ Route::is('course') ? 'active' : '' }}">
+          @can('user-display')
+            <a class="nav-link" href="{{ url('/course') }}">Courses</a>
+          @endcan
           </li>
-          <li class="nav-item active dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Facilities
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-              <a class="dropdown-item" href="{{ '/services' }}">Services</a>
-              <a class="dropdown-item active" href="{{ '/classrooms' }}">Classrooms</a>
-            </div>
+          <li class="nav-item {{ Route::is('services') ? 'active' : '' }}">
+          @can('user-display')
+            <a class="nav-link" href="{{ url('/services') }}">Services</a>
+          @endcan
+          </li>
+          <li class="nav-item active {{ Route::is('classrooms') ? 'active' : '' }}">
+          @can('user-display')
+            <a class="nav-link" href="{{ url('/classrooms') }}">Classroom</a>
+          @endcan
           </li>   
+          <li class="nav-item {{ Route::is('pendaftaran') ? 'active' : '' }}">
+          @can('user-display')
+            <a class="nav-link" href="{{ url('/pendaftaran') }}">Registration</a>
+          </li>  
+          @endcan
+          <li class="nav-item {{ Route::is('manage-dashboard') ? 'active' : '' }}">
+          @can('manage-articles')
+            <a class="nav-link" href="{{ url('/manage-dashboard') }}">Manage</a>
+          @endcan
+          </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
-          </li>   
-          <li class="nav-item">
-            <a class="nav-link" href="register.html">Register</a>
-          </li>   
+          <a class="nav-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+          </li> 
         </ul>
       </div>
     </div>
@@ -65,7 +79,7 @@
 
   @foreach($classrooms as $cl)
   <!-- Image element - set the background image for the header in the line below -->
-  <div class="py-5 bg-image-full" style="background-image: url('{{ $cl->ruang_pic }}');">
+  <div class="py-5 bg-image-full" style="background-image: url('{{('storage/'.$cl->ruang_pic)}}" class="card-img-top" alt="Card image cap">
     <!-- Put anything you want here! There is just a spacer below for demo purposes! -->
     <div style="height: 200px;"></div>
   </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Classroom;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Gate;
 use PDF;
 
 class ClassroomController extends Controller
@@ -34,7 +35,7 @@ class ClassroomController extends Controller
 		Classroom::create([
 			'nama_ruang' => $request->nama_ruang,
 			'kapasitas' => $request->kapasitas,
-			'ruang_pic' => $ruang_pic
+			'ruang_pic' => $ruang_pic,
 		]);
 		return redirect('/manage-classroom');
 	}
@@ -52,7 +53,7 @@ class ClassroomController extends Controller
 		if($classrooms->ruang_pic && file_exists(storage_path('app/public/'.$classrooms->ruang_pic))){
 			\Storage::delete('public/'.$classrooms->ruang_pic);
 		}
-		$classrooms = $request->file('ruang_pic')->store('images','public');
+		$ruang_pic = $request->file('ruang_pic')->store('images','public');
 		$classrooms->ruang_pic = $ruang_pic;
 
 		$classrooms->save();
@@ -65,13 +66,6 @@ class ClassroomController extends Controller
 		return redirect('/manage-classroom');
 	}
 
-	// public function __construct(){
-	// 	//$this->middleware('auth');
-	// 	$this->middleware(function($request, $next){
-	// 		if(Gate::allows('manage-articles')) return $next($request);
-	// 		abort(403, 'Anda tidak memiliki cukup hak akses');
-	// 	});
-	// }
 
 	public function print_pdf(){
 		$classrooms = Classroom::all();

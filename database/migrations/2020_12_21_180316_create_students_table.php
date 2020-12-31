@@ -21,7 +21,6 @@ class CreateStudentsTable extends Migration
             $table->text('alamat');
             $table->string('email');
             $table->string('no_telp');
-            $table->string('bukti_bayar')->nullable();
             $table->timestamps();
         });
     }
